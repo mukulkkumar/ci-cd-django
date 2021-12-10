@@ -9,7 +9,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ~/jenkins-data:/var/jenkins_home
+      - ./jenkins-data:/var/jenkins_home
     networks:
       - djangonet
   db:
@@ -17,7 +17,7 @@ services:
     image: postgres:latest
     restart: always
     ports:
-      - "5432:5432"
+      - "5435:5432"
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
