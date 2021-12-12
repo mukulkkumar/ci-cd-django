@@ -1,48 +1,11 @@
 version: "3.3"
 
 services:
-  jenkins:
-    container_name: jenkins
-    image: jenkins/jenkins:lts
-    privileged: true
-    user: root
-    ports:
-      - 8080:8080
-    volumes:
-      - ./jenkins-data:/var/jenkins_home
-    networks:
-      - djangonet
-  db:
-    build: .
-    image: postgres:latest
-    restart: always
-    ports:
-      - "5435:5432"
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
-    networks:
-      - djangonet
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: ./entrypoint.sh
     restart: always
     volumes:
       - .:/code
     ports:
       - "8000:8000"
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    depends_on:
-      - db
-    links:
-      - db:db
-    networks:
-      - djangonet
-
-networks:
-    djangonet:
-        driver: bridge
