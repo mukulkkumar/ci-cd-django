@@ -4,4 +4,4 @@ echo "****************************"
 echo "** Building Docker Image ***"
 echo "****************************"
 
-docker-compose build --no-cache
+cd ../ && sudo docker-compose build --no-cache
