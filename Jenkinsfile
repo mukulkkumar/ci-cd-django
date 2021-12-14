@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './home/ubuntu/project/ci-cd-django/scripts/build.sh'
+                sh './scripts/build.sh'
             }
         }
 
