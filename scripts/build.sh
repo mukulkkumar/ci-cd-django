@@ -4,4 +4,7 @@ echo "****************************"
 echo "** Building Docker Image ***"
 echo "****************************"
 
-cd ../ && docker-compose build --no-cache
+cd /home/  
+ssh -i zookeeper_solr.pem ubuntu@3.137.101.239
+cd project/ci-cd-django/
+docker-compose build --no-cache
