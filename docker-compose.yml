@@ -3,6 +3,7 @@ version: "3.3"
 services:
   web:
     build: .
+    image: django_server
     command: ./entrypoint.sh
     restart: always
     volumes:
