@@ -10,7 +10,13 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Testing ...!!!'
+                sh './scripts/test.sh'
+            }
+        }
+
+        stage('Push') {
+            steps {
+                echo 'Push image to docker hub...!!!'
             }
         }
     }

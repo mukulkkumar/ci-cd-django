@@ -6,7 +6,7 @@ class Student(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     reg_number = models.CharField(max_length=50)
-    phone_number = models.IntegerField(max_length=15, null=True, blank=True)
+    phone_number = models.IntegerField(null=True, blank=True)
     date_of_admission = models.DateField(null=True, blank=True)
 
     def get_absolute_url(self):
