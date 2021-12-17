@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PASS = credentials('registry-pass')
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -16,7 +20,13 @@ pipeline {
 
         stage('Push') {
             steps {
-                echo 'Push image to docker hub...!!!'
+                sh './scripts/push.sh'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh './scripts/deploy.sh'
             }
         }
     }
