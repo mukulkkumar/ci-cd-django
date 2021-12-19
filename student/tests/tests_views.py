@@ -15,7 +15,7 @@ class StudentListViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_url_accessible_by_name(self):
-        response = self.client.get(reverse('students'))
+        response = self.client.get(reverse('studentss'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template(self):
